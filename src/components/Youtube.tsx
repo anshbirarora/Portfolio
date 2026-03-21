@@ -7,14 +7,16 @@ const youtubeVideos = [
     title: 'Rumour Hindi', 
     url: 'https://youtube.com/@rumourhindi?si=eNivIYem3yYvpdzF',
     views: 'Main Channel', 
-    date: 'Hindi Content' 
+    date: 'Hindi Content',
+    profilePic: 'https://i.ibb.co/G3CxV4g9/1772851292127.png'
   },
   { 
     id: '02', 
     title: 'Rumour Plays', 
     url: 'https://youtube.com/@rumourplays?si=v59JkOUuwxbKdW2D',
     views: 'Tech Channel', 
-    date: 'Plays & Streams' 
+    date: 'Plays & Streams',
+    profilePic: 'https://i.ibb.co/S4HRbzxH/Picsart-26-03-21-09-55-28-315.png'
   },
 ];
 
@@ -62,8 +64,20 @@ export default function Youtube() {
               transition={{ delay: i * 0.1 }}
               className="group border-b border-ink/10 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 hover:bg-ink/[0.02] transition-colors px-4 rounded-xl"
             >
-              <div className="flex items-center gap-8 md:gap-16">
-                <span className="text-sm font-bold opacity-30">{item.id}</span>
+              <div className="flex items-center gap-6 md:gap-12">
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-bold opacity-30">{item.id}</span>
+                  {item.profilePic && (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border border-ink/10 flex-shrink-0">
+                      <img 
+                        src={item.profilePic} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  )}
+                </div>
                 <div>
                   <h3 className="text-2xl md:text-4xl font-display italic group-hover:text-accent transition-colors">
                     {item.title}

@@ -43,21 +43,21 @@ const projects = [
     size: "small"
   },
   {
-    title: "Tech Unboxing 01",
+    title: "Unboxing 01",
     category: "Unboxings",
     image: "https://i.ibb.co/mVF2RCYc/Picsart-26-03-20-21-58-39-278-jpg.jpg",
     overlayImage: "https://i.ibb.co/mVF2RCYc/Picsart-26-03-20-21-58-39-278-jpg.jpg",
     size: "small"
   },
   {
-    title: "Tech Unboxing 02",
+    title: "Unboxing 02",
     category: "Unboxings",
     image: "https://i.ibb.co/Nd3CwKwS/Picsart-26-03-20-21-59-19-528-jpg.jpg",
     overlayImage: "https://i.ibb.co/Nd3CwKwS/Picsart-26-03-20-21-59-19-528-jpg.jpg",
     size: "small"
   },
   {
-    title: "Tech Unboxing 03",
+    title: "Unboxing 03",
     category: "Unboxings",
     image: "https://i.ibb.co/Jj2hwp46/Picsart-26-03-20-21-59-48-308-jpg.jpg",
     overlayImage: "https://i.ibb.co/Jj2hwp46/Picsart-26-03-20-21-59-48-308-jpg.jpg",
