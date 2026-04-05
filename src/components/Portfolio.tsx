@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { Youtube as YoutubeIcon } from 'lucide-react';
 
 const projects = [
   {
@@ -132,7 +133,7 @@ export default function Portfolio() {
                           href={project.downloadUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute inset-0 opacity-100 transition-opacity duration-300 backdrop-blur-sm overflow-hidden"
+                          className="absolute inset-0 opacity-100 transition-opacity duration-300 backdrop-blur-sm overflow-hidden group/overlay"
                         >
                           <img 
                             src={(project as any).overlayImage || "https://i.ibb.co/DHxB1KTz/Picsart-26-03-20-20-44-00-079-jpg.jpg"} 
@@ -140,6 +141,11 @@ export default function Portfolio() {
                             className={`absolute inset-0 w-full h-full object-cover ${project.category === 'Unboxings' ? 'aspect-video' : 'aspect-square'}`}
                             referrerPolicy="no-referrer"
                           />
+                          <div className="absolute inset-0 bg-ink/20 group-hover/overlay:bg-transparent transition-colors duration-500 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-accent/90 flex items-center justify-center shadow-xl transform group-hover/overlay:scale-110 transition-transform duration-500">
+                              <YoutubeIcon size={24} className="text-ink" />
+                            </div>
+                          </div>
                         </a>
                       </div>
                     ) : project.size !== 'accent' ? (

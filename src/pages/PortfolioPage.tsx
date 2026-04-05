@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Youtube as YoutubeIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
@@ -66,6 +66,60 @@ const projects = [
     overlayImage: "https://i.ibb.co/Jj2hwp46/Picsart-26-03-20-21-59-48-308-jpg.jpg",
     size: "small"
   }
+];
+
+const thumbnails = [
+  { id: 1, image: 'https://i.ibb.co/d4S797qp/N4-KMx-KRA8-GY-HD-jpg.jpg' },
+  { id: 2, image: 'https://i.ibb.co/0Hkbnd6/Whats-App-Image-2026-03-20-at-11-52-36-PM.jpg' },
+  { id: 3, image: 'https://i.ibb.co/ks51gGmK/2026-03-21-00-01-09-jpg.jpg' },
+  { id: 4, image: 'https://i.ibb.co/Wpp2HwV5/2026-03-21-00-01-28-jpg.jpg' },
+  { id: 5, image: 'https://i.ibb.co/S7cLngMg/v-Agi-H0-COp-SA-HD-jpg.jpg' },
+  { id: 6, image: 'https://i.ibb.co/nMgC0Fsn/2026-03-21-00-01-37-jpg.jpg' },
+];
+
+const clientWorks = [
+  { 
+    id: 1, 
+    video: 'https://drive.google.com/file/d/1YXPrhdys4-f10thbKxXJkuMM07cv2rzw/view?usp=drive_link',
+    thumbnail: 'https://i.ibb.co/2YLxyFC8/Whats-App-Image-2026-04-05-at-11-35-18-PM.jpg'
+  },
+  { 
+    id: 2, 
+    video: 'https://drive.google.com/file/d/1SMFQYZif9AP888uNIFlWob3CKb9RgoIB/view?usp=drive_link',
+    thumbnail: 'https://i.ibb.co/pjdWYkHP/Whats-App-Image-2026-04-05-at-11-40-49-PM.jpg'
+  },
+  { 
+    id: 3, 
+    video: 'https://drive.google.com/file/d/1NuwAvdIEB6iT9YCd3Fv6TrKZG9KWQE4E/view?usp=drive_link',
+    thumbnail: 'https://i.ibb.co/XxKkysFy/1775412921751.png'
+  },
+];
+
+const aiWorks = [
+  { 
+    id: 1, 
+    video: 'https://drive.google.com/file/d/1nFXBpJLZ7irIUm6autbiS2pxaZwMNcGU/view?usp=drive_link', 
+    thumbnail: 'https://i.ibb.co/Nd8VpMHL/Whats-App-Image-2026-04-05-at-11-58-02-PM-1.jpg', 
+    title: 'AI Exploration 01' 
+  },
+  { 
+    id: 2, 
+    video: 'https://drive.google.com/file/d/1lVf9ehxSeQ0JZj9zj60o2999FUUH9x6a/view?usp=drive_link', 
+    thumbnail: 'https://i.ibb.co/HfgK6bVq/Whats-App-Image-2026-04-05-at-11-58-02-PM.jpg', 
+    title: 'AI Exploration 02' 
+  },
+  { 
+    id: 3, 
+    video: 'https://drive.google.com/file/d/1YzjWcDulEHjSi21A_eEheUKuTr7O0EwW/view?usp=drive_link', 
+    thumbnail: 'https://i.ibb.co/TBpn64G4/Whats-App-Image-2026-04-05-at-11-58-01-PM.jpg', 
+    title: 'AI Exploration 03' 
+  },
+  { 
+    id: 4, 
+    video: 'https://drive.google.com/file/d/1d_oo7848haezUuQMVPN2bsth0jViHRl5/view?usp=drive_link', 
+    thumbnail: 'https://i.ibb.co/VYCYjtCs/Whats-App-Image-2026-04-06-at-12-16-40-AM.jpg', 
+    title: 'AI Exploration 04' 
+  },
 ];
 
 export default function PortfolioPage() {
@@ -142,7 +196,7 @@ export default function PortfolioPage() {
                             href={project.downloadUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="absolute inset-0 opacity-100 transition-opacity duration-300 backdrop-blur-sm overflow-hidden"
+                            className="absolute inset-0 opacity-100 transition-opacity duration-300 backdrop-blur-sm overflow-hidden group/overlay"
                           >
                             <img 
                               src={(project as any).overlayImage || "https://i.ibb.co/DHxB1KTz/Picsart-26-03-20-20-44-00-079-jpg.jpg"} 
@@ -150,6 +204,11 @@ export default function PortfolioPage() {
                               className={`absolute inset-0 w-full h-full object-cover ${project.category === 'Unboxings' ? 'aspect-video' : 'aspect-square'}`}
                               referrerPolicy="no-referrer"
                             />
+                            <div className="absolute inset-0 bg-ink/20 group-hover/overlay:bg-transparent transition-colors duration-500 flex items-center justify-center">
+                              <div className="w-12 h-12 rounded-full bg-accent/90 flex items-center justify-center shadow-xl transform group-hover/overlay:scale-110 transition-transform duration-500">
+                                <YoutubeIcon size={24} className="text-ink" />
+                              </div>
+                            </div>
                           </a>
                         </div>
                       ) : project.size !== 'accent' ? (
@@ -186,6 +245,131 @@ export default function PortfolioPage() {
               </div>
             </div>
           ))}
+
+          {/* Thumbnails Section */}
+          <div className="mt-32">
+            <div className="flex items-center gap-4 mb-12">
+              <h2 className="text-4xl md:text-5xl font-display">Thumbnails</h2>
+              <div className="h-px flex-1 bg-ink/10" />
+              <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">
+                {thumbnails.length} Projects
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {thumbnails.map((thumb, i) => (
+                <motion.div
+                  key={thumb.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="aspect-video bg-ink/5 rounded-[32px] overflow-hidden border border-ink/10 group relative flex items-center justify-center"
+                >
+                  <img 
+                    src={thumb.image} 
+                    alt={`Thumbnail ${thumb.id}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Client Works Section */}
+          <div className="mt-32">
+            <div className="flex items-center gap-4 mb-12">
+              <h2 className="text-4xl md:text-5xl font-display">
+                Client Works (Short Videos)
+                <span className="text-sm md:text-base font-sans ml-4 opacity-50 font-normal lowercase tracking-normal italic block md:inline">
+                  (Click to view videos)
+                </span>
+              </h2>
+              <div className="h-px flex-1 bg-ink/10" />
+              <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">
+                {clientWorks.length} Projects
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {clientWorks.map((work, i) => (
+                <motion.a
+                  key={work.id}
+                  href={work.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="aspect-video bg-ink/5 rounded-[32px] overflow-hidden border border-ink/10 group relative block"
+                >
+                  <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    {work.thumbnail && (
+                      <img 
+                        src={work.thumbnail} 
+                        alt={`Client Work ${work.id}`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-accent/80 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
+                      <YoutubeIcon size={24} className="text-ink" />
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* AI Explorations Section */}
+          <div className="mt-32">
+            <div className="flex items-center gap-4 mb-12">
+              <h2 className="text-4xl md:text-5xl font-display">
+                AI Explorations (Video)
+                <span className="text-sm md:text-base font-sans ml-4 opacity-50 font-normal lowercase tracking-normal italic block md:inline">
+                  (Click to view videos)
+                </span>
+              </h2>
+              <div className="h-px flex-1 bg-ink/10" />
+              <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">
+                {aiWorks.length} Projects
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl">
+              {aiWorks.map((work, i) => (
+                <motion.a
+                  key={work.id}
+                  href={work.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`${i === 3 ? 'aspect-video' : 'aspect-square'} bg-ink/5 rounded-[32px] overflow-hidden border border-ink/10 group relative block ${i === 3 ? 'lg:col-start-2' : ''}`}
+                >
+                  <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    {work.thumbnail && (
+                      <img 
+                        src={work.thumbnail} 
+                        alt={work.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-accent/80 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
+                      <YoutubeIcon size={24} className="text-ink" />
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
 

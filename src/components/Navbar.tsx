@@ -10,6 +10,7 @@ export default function Navbar() {
     { name: 'About', href: isHome ? '#about' : '/#about', isLink: false },
     { name: 'Portfolio', href: '/portfolio', isLink: true },
     { name: 'Youtube', href: isHome ? '#youtube' : '/#youtube', isLink: false },
+    { name: 'Certifications', href: 'https://drive.google.com/file/d/1dahMTD0CxomplYUbetsHHfZUY-EoJQE4/view?usp=drive_link', isLink: false, isExternal: true },
     { name: 'Contact', href: isHome ? '#contact' : '/#contact', isLink: false },
   ];
 
@@ -20,8 +21,13 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 md:py-6 bg-paper/80 backdrop-blur-md border-b border-ink/5"
     >
       <Link to="/" className="flex items-center gap-2 group">
-        <div className="w-8 h-8 bg-ink rounded-full flex items-center justify-center group-hover:bg-accent transition-colors">
-          <span className="text-paper font-display font-bold text-xs group-hover:text-ink">AS</span>
+        <div className="w-8 h-8 rounded-full overflow-hidden border border-ink/10 group-hover:border-accent transition-colors">
+          <img 
+            src="https://i.ibb.co/VYSnYQqQ/Picsart-26-04-05-22-42-49-401-1.png" 
+            alt="Anshbir Singh Arora" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
         </div>
         <span className="font-display font-bold text-lg tracking-tighter hidden sm:block">Anshbir Singh Arora</span>
       </Link>
@@ -40,6 +46,8 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
+              target={item.isExternal ? "_blank" : undefined}
+              rel={item.isExternal ? "noopener noreferrer" : undefined}
               className="text-sm font-medium hover:text-accent transition-colors"
             >
               {item.name}

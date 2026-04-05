@@ -10,6 +10,7 @@ export default function Footer() {
     { name: 'About', href: isHome ? '#about' : '/#about', isLink: false },
     { name: 'Portfolio', href: '/portfolio', isLink: true },
     { name: 'Youtube', href: isHome ? '#youtube' : '/#youtube', isLink: false },
+    { name: 'Certifications', href: 'https://drive.google.com/file/d/1dahMTD0CxomplYUbetsHHfZUY-EoJQE4/view?usp=drive_link', isLink: false, isExternal: true },
     { name: 'Contact', href: isHome ? '#contact' : '/#contact', isLink: false },
   ];
 
@@ -18,8 +19,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-20">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-ink rounded-full flex items-center justify-center group-hover:bg-accent transition-colors">
-              <span className="text-paper font-display font-bold text-sm group-hover:text-ink">AS</span>
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-ink/10 group-hover:border-accent transition-colors">
+              <img 
+                src="https://i.ibb.co/VYSnYQqQ/Picsart-26-04-05-22-42-49-401-1.png" 
+                alt="Anshbir Singh Arora" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <span className="font-display font-bold text-2xl tracking-tighter">Anshbir Singh Arora</span>
           </Link>
@@ -31,7 +37,13 @@ export default function Footer() {
                   {item.name}
                 </Link>
               ) : (
-                <a key={item.name} href={item.href} className="text-sm font-medium hover:text-accent transition-colors">
+                <a 
+                  key={item.name} 
+                  href={item.href} 
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                  className="text-sm font-medium hover:text-accent transition-colors"
+                >
                   {item.name}
                 </a>
               )

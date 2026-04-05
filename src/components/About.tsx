@@ -1,6 +1,22 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect } from 'react';
+
+const images = [
+  "https://i.ibb.co/Y4mZHb6Z/Picsart-26-03-21-00-15-07-337.png",
+  "https://i.ibb.co/GvSmt5ZX/1775415572022.png",
+  "https://i.ibb.co/KxgGTfyR/Picsart-26-04-05-23-12-12-111.png"
+];
 
 export default function About() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="about" className="py-32 bg-ink text-paper overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -13,12 +29,19 @@ export default function About() {
           >
             <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl scale-150" />
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-paper/10">
-              <img 
-                src="https://i.ibb.co/Y4mZHb6Z/Picsart-26-03-21-00-15-07-337.png" 
-                alt="Portrait"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={images[currentImageIndex]}
+                  src={images[currentImageIndex]} 
+                  alt="Portrait"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 1, ease: "easeInOut" }}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </AnimatePresence>
             </div>
             
             {/* Decorative Crosshairs */}
@@ -42,7 +65,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="max-w-2xl text-lg md:text-xl text-paper/60 leading-relaxed"
           >
-            I believe that every frame tells a story, and every story is a piece of visual poetry. My philosophy is rooted in minimalism, where the silence between the shots is as important as the shots themselves.
+            I believe that every frame tells a story, and every story is a piece of visual poetry. With a highly skilled professional background, I am uniquely adaptive—seamlessly transitioning my style to represent everything from high-end enterprise and serious productions to vibrant social media content and casual, authentic storytelling.
           </motion.p>
         </div>
 
