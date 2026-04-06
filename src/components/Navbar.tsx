@@ -8,8 +8,7 @@ export default function Navbar() {
   const navItems = [
     { name: 'Home', href: '/', isLink: true },
     { name: 'About', href: isHome ? '#about' : '/#about', isLink: false },
-    { name: 'Portfolio', href: '/portfolio', isLink: true },
-    { name: 'Youtube', href: isHome ? '#youtube' : '/#youtube', isLink: false },
+    { name: 'My Work', href: isHome ? '#my-work' : '/#my-work', isLink: false },
     { name: 'Certifications', href: 'https://drive.google.com/file/d/1dahMTD0CxomplYUbetsHHfZUY-EoJQE4/view?usp=drive_link', isLink: false, isExternal: true },
     { name: 'Contact', href: isHome ? '#contact' : '/#contact', isLink: false },
   ];

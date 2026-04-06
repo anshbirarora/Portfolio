@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { ArrowLeft, Youtube as YoutubeIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -143,7 +142,7 @@ export default function PortfolioPage() {
               viewport={{ once: true }}
               className="text-6xl md:text-8xl"
             >
-              Full Portfolio
+              Full Work Archive
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}
@@ -372,8 +371,6 @@ export default function PortfolioPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

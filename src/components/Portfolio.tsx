@@ -70,7 +70,7 @@ export default function Portfolio() {
   const categories = ["Motion Branding", "Cinematics", "Unboxings"];
 
   return (
-    <section id="portfolio" className="py-32 px-6 md:px-12 bg-paper">
+    <section id="my-work" className="py-32 px-6 md:px-12 bg-paper">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <motion.h2 
@@ -79,7 +79,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-6xl md:text-8xl"
           >
-            Portfolio
+            My Work
           </motion.h2>
         </div>
 

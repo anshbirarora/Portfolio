@@ -4,8 +4,9 @@ import About from '../components/About';
 import Portfolio from '../components/Portfolio';
 import Youtube from '../components/Youtube';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { motion, useScroll, useSpring, AnimatePresence } from 'motion/react';
+import { Youtube as YoutubeIcon } from 'lucide-react';
+import { useState } from 'react';
 
 export default function HomePage() {
   const { scrollYProgress } = useScroll();
@@ -14,6 +15,8 @@ export default function HomePage() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative selection:bg-accent selection:text-ink">
@@ -33,20 +36,52 @@ export default function HomePage() {
         <Contact />
       </main>
 
-      <Footer />
+      {/* YouTube Floating Action Button */}
+      <div className="fixed bottom-8 right-8 z-[70] flex flex-col items-end">
+        <AnimatePresence>
+          {isHovered && (
+            <motion.a
+              href="https://youtu.be/qvN6r3tGa8Q?si=ilgNXzx7Z11sdcnn"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.8 }}
+              className="mb-4 p-4 bg-paper rounded-2xl shadow-2xl flex items-center gap-3 cursor-pointer border border-ink/5"
+            >
+              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                <YoutubeIcon className="text-ink" size={20} />
+              </div>
+              <div className="pr-4">
+                <span className="block text-[10px] font-bold uppercase tracking-tighter opacity-50">Youtube</span>
+                <span className="block text-xs font-bold whitespace-nowrap">Latest Uploads</span>
+              </div>
+            </motion.a>
+          )}
+        </AnimatePresence>
 
-      {/* Floating Action Button */}
-      <motion.button
-        initial={{ scale: 0, rotate: -45 }}
-        animate={{ scale: 1, rotate: 0 }}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        className="fixed bottom-8 right-8 w-16 h-16 bg-accent rounded-full shadow-2xl z-40 flex items-center justify-center group"
-      >
-        <div className="relative w-8 h-8">
-          <div className="absolute inset-0 border-2 border-ink rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-ink rounded-full group-hover:scale-150 transition-transform" />
-        </div>
-      </motion.button>
+        <motion.a
+          href="https://youtu.be/qvN6r3tGa8Q?si=ilgNXzx7Z11sdcnn"
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          className="w-16 h-16 bg-[#FF0000] rounded-full shadow-2xl flex items-center justify-center group relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <YoutubeIcon size={28} className="text-white relative z-10" />
+          
+          {/* Animated Ring */}
+          <motion.div 
+            animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute inset-0 border-4 border-white/30 rounded-full"
+          />
+        </motion.a>
+      </div>
     </div>
   );
 }

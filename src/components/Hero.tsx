@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowUpRight, Youtube, Instagram, Facebook, Twitter } from 'lucide-react';
+import { ArrowUpRight, Youtube, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
@@ -26,7 +26,7 @@ export default function Hero() {
                 {[
                   { Icon: Youtube, href: 'https://youtu.be/N-7Ok80VGpg?si=wUsbN-ofCptPLHrc' },
                   { Icon: Instagram, href: 'https://www.instagram.com/reel/DTKN7pwAopW/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==' },
-                  { Icon: Facebook, href: '#' },
+                  { Icon: Linkedin, href: 'https://www.linkedin.com/in/anshbir-singh-arora-59a7763b8' },
                   { Icon: Twitter, href: '#' }
                 ].map(({ Icon, href }, i) => (
                   <motion.a

@@ -61,36 +61,60 @@ const ytVideos = [
     id: 1,
     url: 'https://youtu.be/qvN6r3tGa8Q?si=dYxrj3Xtecfvg9OH',
     thumbnail: 'https://i.ibb.co/5gMNvG2n/2026-04-06-15-34-09-jpg.jpg',
-    title: 'Featured Video'
+    title: 'Featured Video',
+    language: 'English'
   },
   {
     id: 2,
     url: 'https://youtu.be/G93Zoc1bQO8?si=bq-Ri2bWYu7rCY7z',
     thumbnail: 'https://i.ibb.co/GBnj0Z9/2026-04-06-15-43-46-jpg.jpg',
-    title: 'Second Video'
+    title: 'Second Video',
+    language: 'English'
   },
   {
     id: 3,
     url: 'https://youtu.be/sEP9NldTimk?si=yCsQXRm43BvrzB-B',
     thumbnail: 'https://img.youtube.com/vi/sEP9NldTimk/maxresdefault.jpg',
-    title: 'Third Video'
+    title: 'Third Video',
+    language: 'English'
+  },
+  {
+    id: 4,
+    url: 'https://youtu.be/rgHUOumamJo?si=wwQQAPvmfxzUZkUi',
+    thumbnail: 'https://i.ibb.co/TD3x0Jb7/Whats-App-Image-2026-04-06-at-4-47-23-PM.jpg',
+    title: 'Fourth Video',
+    language: 'Hindi'
+  },
+  {
+    id: 5,
+    url: 'https://youtu.be/f8qHT1CjhQc?si=_JBaAZSK4E9bNAOk',
+    thumbnail: 'https://i.ibb.co/GQnS83wv/Whats-App-Image-2026-04-06-at-4-51-31-PM.jpg',
+    title: 'Fifth Video',
+    language: 'Hindi'
+  },
+  {
+    id: 6,
+    url: 'https://youtu.be/nAu4ipql3Uw?si=SoTVkD_RHnQtYKdj',
+    thumbnail: 'https://i.ibb.co/V0XtTVXn/Whats-App-Image-2026-04-06-at-4-53-03-PM.jpg',
+    title: 'Sixth Video',
+    language: 'Hindi'
   }
 ];
 
 export default function Youtube() {
   return (
-    <section id="youtube" className="py-32 px-6 md:px-12 bg-paper">
+    <section className="pb-32 pt-0 px-6 md:px-12 bg-paper">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center md:text-left">
-          <motion.h2 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-4 flex items-center justify-center md:justify-start gap-4"
+            className="flex items-center justify-center md:justify-start gap-4 mb-4"
           >
-            <YoutubeIcon size={48} className="text-[#FF0000] md:w-16 md:h-16" />
-            <span>Youtube</span>
-          </motion.h2>
+            <YoutubeIcon size={32} className="text-[#FF0000]" />
+            <h3 className="text-3xl md:text-4xl font-display italic">Youtube Content</h3>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -98,7 +122,7 @@ export default function Youtube() {
             transition={{ delay: 0.2 }}
             className="text-xl opacity-60 font-display italic max-w-3xl"
           >
-            Where humor meets high end tech. I provide strategic breakdowns of complex delivery systems like Zepto and Blinkit alongside my signature cinematic motion branding. A professional archive for brands seeking visual excellence and technical insight.
+            Where creative humor meets professional precision. My filmmaking journey began in childhood, evolving into a diverse portfolio that spans high-energy entertainment and sophisticated cinematic branding. This archive serves as definitive proof of my versatility and long-standing commitment to visual excellence.
           </motion.p>
         </div>
 
@@ -165,33 +189,84 @@ export default function Youtube() {
             <div className="w-20 h-1 bg-accent mx-auto md:mx-0" />
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ytVideos.map((video, i) => (
-              <motion.a
-                key={video.id}
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="aspect-video bg-ink/5 rounded-2xl overflow-hidden border border-ink/10 group relative block"
-              >
-                <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <img 
-                    src={video.thumbnail} 
-                    alt={video.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#FF0000]/90 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
-                    <YoutubeIcon size={24} className="text-white" />
+          {/* English Videos */}
+          <div className="mb-16">
+            <motion.h4 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-sm font-bold uppercase tracking-[0.3em] opacity-40 mb-8"
+            >
+              English
+            </motion.h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ytVideos.filter(v => v.language === 'English').map((video, i) => (
+                <motion.a
+                  key={video.id}
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="aspect-video bg-ink/5 rounded-2xl overflow-hidden border border-ink/10 group relative block"
+                >
+                  <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-[#FF0000]/90 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
+                      <YoutubeIcon size={24} className="text-white" />
+                    </div>
                   </div>
-                </div>
-              </motion.a>
-            ))}
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Hindi Videos */}
+          <div>
+            <motion.h4 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-sm font-bold uppercase tracking-[0.3em] opacity-40 mb-8"
+            >
+              Hindi
+            </motion.h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ytVideos.filter(v => v.language === 'Hindi').map((video, i) => (
+                <motion.a
+                  key={video.id}
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="aspect-video bg-ink/5 rounded-2xl overflow-hidden border border-ink/10 group relative block"
+                >
+                  <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-[#FF0000]/90 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
+                      <YoutubeIcon size={24} className="text-white" />
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
 
