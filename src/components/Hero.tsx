@@ -65,7 +65,7 @@ export default function Hero() {
         >
           <div className="relative aspect-[4/5] rounded-[40px] overflow-hidden bg-accent/20 group">
             <img 
-              src="https://i.ibb.co/F4D6Hv4f/Picsart-26-03-20-19-11-27-230-jpg.jpg" 
+              src="https://i.ibb.co/1GxN6MHJ/Picsart-26-04-06-17-30-07-194-jpg.jpg" 
               alt="Featured Creator"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
