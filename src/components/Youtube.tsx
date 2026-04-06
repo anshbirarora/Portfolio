@@ -29,24 +29,6 @@ const thumbnails = [
   { id: 6, image: 'https://i.ibb.co/nMgC0Fsn/2026-03-21-00-01-37-jpg.jpg' },
 ];
 
-const clientWorks = [
-  { 
-    id: 1, 
-    video: 'https://drive.google.com/file/d/1YXPrhdys4-f10thbKxXJkuMM07cv2rzw/view?usp=drive_link',
-    thumbnail: 'https://i.ibb.co/2YLxyFC8/Whats-App-Image-2026-04-05-at-11-35-18-PM.jpg'
-  },
-  { 
-    id: 2, 
-    video: 'https://drive.google.com/file/d/1SMFQYZif9AP888uNIFlWob3CKb9RgoIB/view?usp=drive_link',
-    thumbnail: 'https://i.ibb.co/pjdWYkHP/Whats-App-Image-2026-04-05-at-11-40-49-PM.jpg'
-  },
-  { 
-    id: 3, 
-    video: 'https://drive.google.com/file/d/1NuwAvdIEB6iT9YCd3Fv6TrKZG9KWQE4E/view?usp=drive_link',
-    thumbnail: 'https://i.ibb.co/XxKkysFy/1775412921751.png'
-  },
-];
-
 const aiWorks = [
   { 
     id: 1, 
@@ -185,61 +167,6 @@ export default function Youtube() {
                   </span>
                 )}
               </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Client Works Section */}
-        <div className="mt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 text-center md:text-left"
-          >
-            <h3 className="text-4xl md:text-5xl font-display italic mb-4">
-              Client Works (Short Videos)
-              <span className="text-sm md:text-base font-sans ml-4 opacity-50 font-normal lowercase tracking-normal italic block md:inline">
-                (Click to view videos)
-              </span>
-            </h3>
-            <div className="w-20 h-1 bg-accent mx-auto md:mx-0" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {clientWorks.map((work, i) => (
-              <motion.a
-                key={work.id}
-                href={work.video}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="aspect-video bg-ink/5 rounded-2xl overflow-hidden border border-ink/10 group relative block"
-              >
-                <div className="absolute inset-0 bg-ink/40 opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  {work.thumbnail && (
-                    <img 
-                      src={work.thumbnail} 
-                      alt={`Client Work ${work.id}`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500" />
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-accent/80 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-500">
-                    <YoutubeIcon size={24} className="text-ink" />
-                  </div>
-                </div>
-                {/* Fallback if no thumbnail */}
-                {!work.thumbnail && (
-                  <div className="w-full h-full flex items-center justify-center bg-ink/5">
-                    <YoutubeIcon size={48} className="opacity-10" />
-                  </div>
-                )}
-              </motion.a>
             ))}
           </div>
         </div>
