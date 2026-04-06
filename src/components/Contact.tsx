@@ -16,7 +16,7 @@ export default function Contact() {
             <div>
               <h2 className="text-5xl md:text-7xl mb-6">Achievements</h2>
               <p className="text-paper/40 max-w-xl">
-                A glimpse into my early creative journey—from childhood competitions to professional milestones that shaped my visual storytelling.
+                A track record of excellence. From early competitive wins to professional milestones, these achievements reflect a lifelong dedication to creative mastery and strategic thinking.
               </p>
             </div>
             <div className="flex gap-4">
@@ -110,7 +110,7 @@ export default function Contact() {
               Let's<br />Connect
             </h2>
             <p className="text-paper/60 text-lg mb-12 max-w-md">
-              Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to new creative collaborations. Give me a message if you want to see more of my works.
+              Ready to elevate your brand's visual narrative? Whether you have a specific project in mind or are looking for a long-term creative partner, I'm here to bring your vision to life. Let's build something exceptional together.
             </p>
 
             <div className="space-y-6">

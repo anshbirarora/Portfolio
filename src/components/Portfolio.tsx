@@ -81,24 +81,19 @@ export default function Portfolio() {
           >
             Portfolio
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-xs text-sm text-ink/50 uppercase tracking-widest font-bold"
-          >
-            A curated selection of visual narratives and artistic explorations.
-            <Link to="/portfolio" className="block mt-4 text-accent hover:underline">View All Projects &rarr;</Link>
-          </motion.p>
         </div>
 
         {categories.map((category) => (
           <div key={category} className="mb-24 last:mb-0">
             <div className="flex items-center gap-4 mb-12">
               <h3 className="text-4xl md:text-5xl font-display">
-                {category} {category === 'Unboxings' ? '(Images)' : '(Video)'}
+                {category === 'Motion Branding' ? 'Motion Branding & Identity' : 
+                 category === 'Cinematics' ? 'Cinematic Storytelling' : 
+                 category === 'Unboxings' ? 'Product Experience' : category}
                 <span className="text-sm md:text-base font-sans ml-4 opacity-50 font-normal lowercase tracking-normal italic">
-                  {category === 'Unboxings' ? 'Unwrapped & Reviewed' : '(Click to view videos)'}
+                  {category === 'Unboxings' ? 'Detailed visual reviews and unboxing narratives' : 
+                   category === 'Motion Branding' ? 'Dynamic visual systems for modern brands' :
+                   category === 'Cinematics' ? 'High-impact narratives and visual poetry' : '(Click to view videos)'}
                 </span>
               </h3>
               <div className="h-px flex-1 bg-ink/10" />

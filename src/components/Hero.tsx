@@ -18,36 +18,29 @@ export default function Hero() {
           
           <div className="max-w-md mb-12">
             <p className="text-lg text-ink/70 leading-relaxed mb-8">
-              I bridge the gap between creative charisma and data-driven strategy. Turning complex logistics into scroll-stopping human stories.
+              I bridge the gap between creative vision and data-driven strategy. Specializing in high-end motion branding and cinematic storytelling that turns complex concepts into scroll-stopping human experiences.
             </p>
             
-            <div className="flex flex-wrap gap-4 mb-12">
-              <Link 
-                to="/portfolio"
-                className="px-8 py-4 bg-ink text-paper rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent hover:text-ink transition-all flex items-center gap-2 group"
-              >
-                View Portfolio
-                <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
-              <div className="flex gap-2">
-              {[
-                { Icon: Youtube, href: 'https://youtu.be/N-7Ok80VGpg?si=wUsbN-ofCptPLHrc' },
-                { Icon: Instagram, href: 'https://www.instagram.com/reel/DTKN7pwAopW/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==' },
-                { Icon: Facebook, href: '#' },
-                { Icon: Twitter, href: '#' }
-              ].map(({ Icon, href }, i) => (
-                <motion.a
-                  key={i}
-                  href={href}
-                  target={href !== '#' ? "_blank" : undefined}
-                  rel={href !== '#' ? "noopener noreferrer" : undefined}
-                  whileHover={{ scale: 1.1, backgroundColor: '#F5A623' }}
-                  className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center transition-colors"
-                >
-                  <Icon size={18} />
-                </motion.a>
-              ))}
-            </div>
+            <div className="flex mb-12">
+              <div className="flex gap-6">
+                {[
+                  { Icon: Youtube, href: 'https://youtu.be/N-7Ok80VGpg?si=wUsbN-ofCptPLHrc' },
+                  { Icon: Instagram, href: 'https://www.instagram.com/reel/DTKN7pwAopW/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==' },
+                  { Icon: Facebook, href: '#' },
+                  { Icon: Twitter, href: '#' }
+                ].map(({ Icon, href }, i) => (
+                  <motion.a
+                    key={i}
+                    href={href}
+                    target={href !== '#' ? "_blank" : undefined}
+                    rel={href !== '#' ? "noopener noreferrer" : undefined}
+                    whileHover={{ scale: 1.1, backgroundColor: '#F5A623' }}
+                    className="w-14 h-14 rounded-full border border-ink/10 flex items-center justify-center transition-colors hover:border-accent"
+                  >
+                    <Icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-8">
@@ -79,17 +72,6 @@ export default function Hero() {
             />
             <div className="absolute inset-0 bg-accent/10 mix-blend-multiply pointer-events-none" />
             
-            {/* Floating Elements */}
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-8 right-8 w-12 h-12 bg-paper rounded-full flex items-center justify-center shadow-xl"
-            >
-              <div className="w-8 h-8 rounded-full border-2 border-ink/10 flex items-center justify-center">
-                <div className="w-1 h-1 bg-ink rounded-full" />
-              </div>
-            </motion.div>
-
             <motion.a 
               href="https://youtu.be/qvN6r3tGa8Q?si=ilgNXzx7Z11sdcnn"
               target="_blank"

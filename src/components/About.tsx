@@ -63,17 +63,17 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="max-w-2xl text-lg md:text-xl text-paper/60 leading-relaxed"
+            className="max-w-3xl text-lg md:text-xl text-paper/60 leading-relaxed"
           >
-            I believe that every frame tells a story, and every story is a piece of visual poetry. With a highly skilled professional background, I am uniquely adaptive—seamlessly transitioning my style to represent everything from high-end enterprise and serious productions to vibrant social media content and casual, authentic storytelling.
+            I transform complex concepts into high-impact visual narratives. With a background rooted in professional production standards, I specialize in a versatile, adaptive approach—bridging the gap between sophisticated enterprise branding and high-energy social media content. My work is defined by technical precision, cinematic flair, and a relentless commitment to authentic storytelling.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { title: "Cinematic", desc: "Crafting experiences that feel like high-end film productions." },
-            { title: "Editing", desc: "Expert post-production using industry-standard tools like DaVinci Resolve, Premiere Pro, and After Effects." },
-            { title: "Minimal", desc: "Stripping away the noise to reveal the core essence of the subject." }
+            { title: "Cinematic Direction", desc: "Orchestrating visual experiences that mirror high-end film productions, focusing on lighting, composition, and emotional resonance." },
+            { title: "Post-Production Mastery", desc: "Advanced editing and color grading using industry-standard suites (DaVinci Resolve, Premiere Pro, After Effects) to ensure a polished, broadcast-ready finish." },
+            { title: "Strategic Minimalism", desc: "Distilling brand messages to their core essence, removing the noise to create clean, impactful, and memorable visual identities." }
           ].map((item, i) => (
             <motion.div
               key={i}
