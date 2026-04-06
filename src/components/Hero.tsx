@@ -71,23 +71,6 @@ export default function Hero() {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-accent/10 mix-blend-multiply pointer-events-none" />
-            
-            <motion.a 
-              href="https://youtu.be/qvN6r3tGa8Q?si=ilgNXzx7Z11sdcnn"
-              target="_blank"
-              rel="noopener noreferrer"
-              animate={{ x: [0, 20, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-12 -left-6 p-4 bg-paper rounded-2xl shadow-2xl flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform"
-            >
-              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                <Youtube className="text-ink" size={20} />
-              </div>
-              <div className="pr-4">
-                <span className="block text-[10px] font-bold uppercase tracking-tighter opacity-50">Youtube</span>
-                <span className="block text-xs font-bold">Latest Uploads</span>
-              </div>
-            </motion.a>
           </div>
 
           {/* Abstract Shapes */}
